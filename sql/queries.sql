@@ -49,3 +49,17 @@ SELECT
 FROM vehicles
 WHERE make IN ('FORD', 'RIVIAN')
 GROUP BY make, electric_vehicle_type;
+
+-- Q6: Which vehicles have the most anomalies, and what's their average vibration?
+SELECT 
+    v.vin,
+    vh.make,
+    vh.model,
+    COUNT(*) AS total_readings,
+    SUM(CASE WHEN v.is_anomaly = 1 THEN 1 ELSE 0 END) AS anomaly_count,
+    ROUND(AVG(v.vibration_g), 3) AS avg_vibration
+FROM sensor_readings v
+JOIN vehicles vh ON v.vin = vh.vin
+GROUP BY v.vin, vh.make, vh.model
+ORDER BY anomaly_count DESC
+LIMIT 10;
