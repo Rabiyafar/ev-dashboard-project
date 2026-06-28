@@ -26,3 +26,14 @@ CREATE TABLE registrations (
     longitude DECIMAL(10,6),
     FOREIGN KEY (vin) REFERENCES vehicles(vin)
 );
+
+CREATE TABLE sensor_readings (
+    reading_id INT AUTO_INCREMENT PRIMARY KEY,
+    vin VARCHAR(10),
+    timestamp DATETIME,
+    vibration_g DECIMAL(6,3),
+    temperature_c DECIMAL(5,2),
+    motor_rpm DECIMAL(6,1),
+    is_anomaly BOOLEAN,
+    FOREIGN KEY (vin) REFERENCES vehicles(vin)
+);
