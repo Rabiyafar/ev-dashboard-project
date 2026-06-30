@@ -102,3 +102,7 @@ ev_dashboard_project/
 
 - Raw and processed data files are excluded from this repository (see `.gitignore`) since they're large and regeneratable from the source scripts.
 - Sensor/NVH data is **synthetic** — generated to simulate realistic vibration, temperature, and RPM readings with injected anomalies, since real proprietary sensor data isn't publicly available.
+
+# Author
+Rabiya Farheen
+Master’s in Data Science (Germany)
